@@ -1,7 +1,7 @@
 import * as BABYLON from '@babylonjs/core';
 import '@babylonjs/loaders/glTF'
 import * as MATERIALS from '@babylonjs/materials/sky'
-import { AbstractMesh } from 'babylonjs';
+import oaseModel from '../assets/oase.glb?url'
 
 
 class Playground {
@@ -17,7 +17,7 @@ class Playground {
      box.material = skyMaterial;
     const anaglyphArcRotateCamera = new BABYLON.AnaglyphArcRotateCamera("anaglyphCam", 0, 45/180*Math.PI, 0, new BABYLON.Vector3(10, 5, 0), 0.001, scene);
     
-    let oase=BABYLON.SceneLoader.ImportMeshAsync("", "/src/", "oase.glb", scene)
+    let oase=BABYLON.SceneLoader.ImportMeshAsync("", oaseModel, "", scene)
    
     let onRendering=new BABYLON.Observable();
     scene.onBeforeRenderObservable.add(()=>{
@@ -46,7 +46,7 @@ class Playground {
           randomColor.diffuseColor=BABYLON.Color3.Random();
           sphere.material=randomColor;
           onRendering.add(()=>{
-              sphere.position=sphere.position.add(BABYLON.Vector3.Random(-0.05, 0.05))
+              sphere.position=sphere.position.add(BABYLON.Vector3.Random(-0.1, 0.1))
             }
           );
       }
