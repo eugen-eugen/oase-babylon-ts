@@ -38,7 +38,8 @@ class Playground {
     light.intensity = 1;
 
 
-    for (let index = 0; index < 100; index++) {
+    for (let index = 0; index < 1001
+      ; index++) {
       
           let sphere = BABYLON.MeshBuilder.CreateSphere('sphere', { diameter: 2, segments: 32 }, scene);
           sphere.position=BABYLON.Vector3.Random(0, 0);
